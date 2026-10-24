@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>AIT Pune - 3D Indoor Navigation</title>
-  <script type="module" crossorigin src="/assets/index-M_6Dw1gY.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B1LWOG9Y.css">
+  <script type="module" crossorigin src="/assets/index-Sc3o-8eI.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-wpkA3amY.css">
 </head>
 <body>
   <!-- Loading Overlay -->
@@ -66,6 +66,24 @@
     <span id="mode-fab-icon" class="mode-fab-icon">🚶</span>
     <span id="mode-fab-label" class="mode-fab-label">Walk</span>
   </button>
+
+  <!-- Walk Mode On-Screen Touch Controls (Forward, Backward, Left, Right) -->
+  <div id="walk-touch-pad" class="walk-touch-pad hidden" aria-label="Walk controls">
+    <button id="walk-btn-fwd" class="walk-touch-btn" data-control="forward button" title="Forward (W / Up)" aria-label="Forward">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <div class="walk-touch-row">
+      <button id="walk-btn-left" class="walk-touch-btn" data-control="left button" title="Left (A / Left)" aria-label="Left">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="walk-btn-bwd" class="walk-touch-btn" data-control="backward button" title="Backward (S / Down)" aria-label="Backward">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </button>
+      <button id="walk-btn-right" class="walk-touch-btn" data-control="right button" title="Right (D / Right)" aria-label="Right">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
 
   <!-- CORNER: Mini-map Widget (Bottom-Right, tappable to minimize/maximize) -->
   <div id="mini-map-container" class="mini-map-container" title="Tap to hide / show mini-map">
