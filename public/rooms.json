@@ -1,0 +1,805 @@
+{
+ "note": "Coordinates are in image units, y points down. rot is degrees about (cx,cy). Approximate, hand-traced from the ground floor plan.",
+ "rooms": [
+  {
+   "name": "Ladies Toilet",
+   "type": "toilet",
+   "cx": 639.0,
+   "cy": 249.0,
+   "w": 42,
+   "h": 18,
+   "rot": 0,
+   "id": "r01"
+  },
+  {
+   "name": "Hardware Lab",
+   "type": "lab",
+   "cx": 639.0,
+   "cy": 274.0,
+   "w": 42,
+   "h": 32,
+   "rot": 0,
+   "id": "r02"
+  },
+  {
+   "name": "Chemistry Lab",
+   "type": "lab",
+   "cx": 639.0,
+   "cy": 307.5,
+   "w": 42,
+   "h": 35,
+   "rot": 0,
+   "id": "r03"
+  },
+  {
+   "name": "Unnamed Room",
+   "type": "other",
+   "cx": 639.0,
+   "cy": 342.5,
+   "w": 42,
+   "h": 35,
+   "rot": 0,
+   "id": "r04"
+  },
+  {
+   "name": "Unnamed Room",
+   "type": "other",
+   "cx": 639.0,
+   "cy": 374.0,
+   "w": 42,
+   "h": 28,
+   "rot": 0,
+   "id": "r05"
+  },
+  {
+   "name": "Gents Toilet",
+   "type": "toilet",
+   "cx": 639.0,
+   "cy": 397.0,
+   "w": 42,
+   "h": 18,
+   "rot": 0,
+   "id": "r06"
+  },
+  {
+   "name": "Physics Lab",
+   "type": "lab",
+   "cx": 639.0,
+   "cy": 435.5,
+   "w": 42,
+   "h": 59,
+   "rot": 0,
+   "id": "r07"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 639.0,
+   "cy": 475.0,
+   "w": 42,
+   "h": 14,
+   "rot": 0,
+   "id": "r08"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 690.0,
+   "cy": 350.0,
+   "w": 14,
+   "h": 50,
+   "rot": 0,
+   "id": "r09"
+  },
+  {
+   "name": "Gents Toilet",
+   "type": "toilet",
+   "cx": 348.0,
+   "cy": 295.0,
+   "w": 40,
+   "h": 20,
+   "rot": 0,
+   "id": "r10"
+  },
+  {
+   "name": "Central Software Lab-I (Comp)",
+   "type": "lab",
+   "cx": 348.0,
+   "cy": 340.0,
+   "w": 40,
+   "h": 70,
+   "rot": 0,
+   "id": "r11"
+  },
+  {
+   "name": "Central Software Lab-II (Comp)",
+   "type": "lab",
+   "cx": 348.0,
+   "cy": 405.0,
+   "w": 40,
+   "h": 60,
+   "rot": 0,
+   "id": "r12"
+  },
+  {
+   "name": "Programming Lab (E&TC)",
+   "type": "lab",
+   "cx": 348.0,
+   "cy": 457.5,
+   "w": 40,
+   "h": 45,
+   "rot": 0,
+   "id": "r13"
+  },
+  {
+   "name": "Audio Video Lab (E&TC)",
+   "type": "lab",
+   "cx": 348.0,
+   "cy": 507.5,
+   "w": 40,
+   "h": 55,
+   "rot": 0,
+   "id": "r14"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 379.0,
+   "cy": 497.5,
+   "w": 14,
+   "h": 35,
+   "rot": 0,
+   "id": "r15"
+  },
+  {
+   "name": "Network & Power Lab",
+   "type": "lab",
+   "cx": 412.0,
+   "cy": 533.0,
+   "w": 44,
+   "h": 26,
+   "rot": 0,
+   "id": "r16"
+  },
+  {
+   "name": "Radio Club",
+   "type": "other",
+   "cx": 307.0,
+   "cy": 533.0,
+   "w": 34,
+   "h": 26,
+   "rot": 0,
+   "id": "r17"
+  },
+  {
+   "name": "MT Park",
+   "type": "other",
+   "cx": 397.0,
+   "cy": 651.0,
+   "w": 50,
+   "h": 22,
+   "rot": 0,
+   "id": "r18"
+  },
+  {
+   "name": "UPS Room",
+   "type": "other",
+   "cx": 352.0,
+   "cy": 262.0,
+   "w": 40,
+   "h": 24,
+   "rot": -29,
+   "id": "r19"
+  },
+  {
+   "name": "Electrical Lab",
+   "type": "lab",
+   "cx": 390.5,
+   "cy": 240.7,
+   "w": 40,
+   "h": 24,
+   "rot": -29,
+   "id": "r20"
+  },
+  {
+   "name": "CSL Lab III",
+   "type": "lab",
+   "cx": 429.0,
+   "cy": 219.4,
+   "w": 40,
+   "h": 24,
+   "rot": -29,
+   "id": "r21"
+  },
+  {
+   "name": "Server Room (Comp)",
+   "type": "other",
+   "cx": 467.5,
+   "cy": 198.1,
+   "w": 40,
+   "h": 24,
+   "rot": -29,
+   "id": "r22"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 415,
+   "cy": 278,
+   "w": 30,
+   "h": 14,
+   "rot": -29,
+   "id": "r23"
+  },
+  {
+   "name": "Staff Room (Comp)",
+   "type": "office",
+   "cx": 543.0,
+   "cy": 99.0,
+   "w": 80,
+   "h": 28,
+   "rot": 0,
+   "id": "r24"
+  },
+  {
+   "name": "Store (Comp)",
+   "type": "store",
+   "cx": 543.0,
+   "cy": 127.0,
+   "w": 80,
+   "h": 28,
+   "rot": 0,
+   "id": "r25"
+  },
+  {
+   "name": "HOD (Comp)",
+   "type": "office",
+   "cx": 543.0,
+   "cy": 155.0,
+   "w": 80,
+   "h": 28,
+   "rot": 0,
+   "id": "r26"
+  },
+  {
+   "name": "WiFi Cell",
+   "type": "other",
+   "cx": 543.0,
+   "cy": 183.0,
+   "w": 80,
+   "h": 28,
+   "rot": 0,
+   "id": "r27"
+  },
+  {
+   "name": "Comp Dept Library",
+   "type": "other",
+   "cx": 543.0,
+   "cy": 211.0,
+   "w": 80,
+   "h": 28,
+   "rot": 0,
+   "id": "r28"
+  },
+  {
+   "name": "IT Lab III",
+   "type": "lab",
+   "cx": 621.5,
+   "cy": 207.5,
+   "w": 77,
+   "h": 35,
+   "rot": 0,
+   "id": "r29"
+  },
+  {
+   "name": "Open to Sky",
+   "type": "void",
+   "cx": 642.0,
+   "cy": 143.0,
+   "w": 88,
+   "h": 70,
+   "rot": 0,
+   "id": "r30"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 640.0,
+   "cy": 72.0,
+   "w": 80,
+   "h": 20,
+   "rot": 0,
+   "id": "r31"
+  },
+  {
+   "name": "Staff Room (Mech)",
+   "type": "office",
+   "cx": 743.0,
+   "cy": 97.5,
+   "w": 80,
+   "h": 25,
+   "rot": 0,
+   "id": "r32"
+  },
+  {
+   "name": "Store (Mech)",
+   "type": "store",
+   "cx": 743.0,
+   "cy": 121.0,
+   "w": 80,
+   "h": 22,
+   "rot": 0,
+   "id": "r33"
+  },
+  {
+   "name": "HOD (Mech)",
+   "type": "office",
+   "cx": 743.0,
+   "cy": 142.0,
+   "w": 80,
+   "h": 20,
+   "rot": 0,
+   "id": "r34"
+  },
+  {
+   "name": "CAD Lab I & II",
+   "type": "lab",
+   "cx": 730.5,
+   "cy": 188.5,
+   "w": 55,
+   "h": 73,
+   "rot": 0,
+   "id": "r35"
+  },
+  {
+   "name": "Mech UPS Room",
+   "type": "other",
+   "cx": 770.5,
+   "cy": 205.0,
+   "w": 25,
+   "h": 40,
+   "rot": 0,
+   "id": "r36"
+  },
+  {
+   "name": "Mech Dept Library",
+   "type": "other",
+   "cx": 825.0,
+   "cy": 208.0,
+   "w": 44,
+   "h": 26,
+   "rot": 30,
+   "id": "r37"
+  },
+  {
+   "name": "Thermal Engg Lab-I",
+   "type": "lab",
+   "cx": 865.5,
+   "cy": 231.5,
+   "w": 44,
+   "h": 26,
+   "rot": 30,
+   "id": "r38"
+  },
+  {
+   "name": "Open Space (Mech)",
+   "type": "other",
+   "cx": 906.0,
+   "cy": 255.0,
+   "w": 44,
+   "h": 26,
+   "rot": 30,
+   "id": "r39"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 850,
+   "cy": 275,
+   "w": 30,
+   "h": 14,
+   "rot": 30,
+   "id": "r40"
+  },
+  {
+   "name": "Gents Toilet",
+   "type": "toilet",
+   "cx": 949.0,
+   "cy": 275.0,
+   "w": 42,
+   "h": 20,
+   "rot": 0,
+   "id": "r41"
+  },
+  {
+   "name": "Thermal Engg Lab II",
+   "type": "lab",
+   "cx": 949.0,
+   "cy": 345.0,
+   "w": 42,
+   "h": 120,
+   "rot": 0,
+   "id": "r42"
+  },
+  {
+   "name": "Design Lab",
+   "type": "lab",
+   "cx": 949.0,
+   "cy": 432.5,
+   "w": 42,
+   "h": 55,
+   "rot": 0,
+   "id": "r43"
+  },
+  {
+   "name": "Fluid Engg Lab",
+   "type": "lab",
+   "cx": 949.0,
+   "cy": 480.0,
+   "w": 42,
+   "h": 40,
+   "rot": 0,
+   "id": "r44"
+  },
+  {
+   "name": "Mechatronics Lab",
+   "type": "lab",
+   "cx": 949.0,
+   "cy": 517.5,
+   "w": 42,
+   "h": 35,
+   "rot": 0,
+   "id": "r45"
+  },
+  {
+   "name": "Stair",
+   "type": "stair",
+   "cx": 907.0,
+   "cy": 490.0,
+   "w": 14,
+   "h": 40,
+   "rot": 0,
+   "id": "r46"
+  },
+  {
+   "name": "Principal Office",
+   "type": "office",
+   "cx": 700,
+   "cy": 545,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r47"
+  },
+  {
+   "name": "Toilets (Gents/Ladies)",
+   "type": "toilet",
+   "cx": 731,
+   "cy": 563,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r48"
+  },
+  {
+   "name": "NSS Club",
+   "type": "other",
+   "cx": 762,
+   "cy": 581,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r49"
+  },
+  {
+   "name": "Admission Cell",
+   "type": "office",
+   "cx": 793,
+   "cy": 599,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r50"
+  },
+  {
+   "name": "Registrar",
+   "type": "office",
+   "cx": 824,
+   "cy": 617,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r51"
+  },
+  {
+   "name": "Product Innovation Lab",
+   "type": "lab",
+   "cx": 855,
+   "cy": 635,
+   "w": 34,
+   "h": 36,
+   "rot": 30,
+   "id": "r52"
+  },
+  {
+   "name": "MT Office",
+   "type": "office",
+   "cx": 880,
+   "cy": 600,
+   "w": 36,
+   "h": 30,
+   "rot": -40,
+   "id": "r53"
+  },
+  {
+   "name": "MI Room",
+   "type": "other",
+   "cx": 906,
+   "cy": 578,
+   "w": 36,
+   "h": 30,
+   "rot": -40,
+   "id": "r54"
+  },
+  {
+   "name": "Telephone Exchange",
+   "type": "other",
+   "cx": 932,
+   "cy": 556,
+   "w": 36,
+   "h": 30,
+   "rot": -40,
+   "id": "r55"
+  },
+  {
+   "name": "Xerox Centre",
+   "type": "other",
+   "cx": 958,
+   "cy": 534,
+   "w": 36,
+   "h": 30,
+   "rot": -40,
+   "id": "r56"
+  },
+  {
+   "name": "Central Store",
+   "type": "store",
+   "cx": 950,
+   "cy": 592,
+   "w": 40,
+   "h": 34,
+   "rot": -40,
+   "id": "r57"
+  },
+  {
+   "name": "Wet Canteen",
+   "type": "other",
+   "cx": 920,
+   "cy": 628,
+   "w": 44,
+   "h": 34,
+   "rot": -40,
+   "id": "r58"
+  },
+  {
+   "name": "Conference Hall",
+   "type": "office",
+   "cx": 622,
+   "cy": 543,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r59"
+  },
+  {
+   "name": "Gents Toilet",
+   "type": "toilet",
+   "cx": 596,
+   "cy": 558,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r60"
+  },
+  {
+   "name": "Accounts",
+   "type": "office",
+   "cx": 570,
+   "cy": 573,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r61"
+  },
+  {
+   "name": "Project Office",
+   "type": "office",
+   "cx": 544,
+   "cy": 588,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r62"
+  },
+  {
+   "name": "Joint Director",
+   "type": "office",
+   "cx": 518,
+   "cy": 603,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r63"
+  },
+  {
+   "name": "P.A. to Director",
+   "type": "office",
+   "cx": 492,
+   "cy": 618,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r64"
+  },
+  {
+   "name": "Director",
+   "type": "office",
+   "cx": 466,
+   "cy": 633,
+   "w": 30,
+   "h": 32,
+   "rot": -30,
+   "id": "r65"
+  },
+  {
+   "name": "Staff Room (E&TC)",
+   "type": "office",
+   "cx": 430,
+   "cy": 618,
+   "w": 34,
+   "h": 30,
+   "rot": 40,
+   "id": "r66"
+  },
+  {
+   "name": "Adv Communication Lab",
+   "type": "lab",
+   "cx": 403,
+   "cy": 596,
+   "w": 34,
+   "h": 30,
+   "rot": 40,
+   "id": "r67"
+  },
+  {
+   "name": "Basic Electronics Lab",
+   "type": "lab",
+   "cx": 376,
+   "cy": 574,
+   "w": 34,
+   "h": 30,
+   "rot": 40,
+   "id": "r68"
+  },
+  {
+   "name": "Reception / Foyer",
+   "type": "reception",
+   "cx": 648,
+   "cy": 513,
+   "w": 44,
+   "h": 44,
+   "rot": 0,
+   "id": "r69"
+  },
+  {
+   "name": "Entry (left)",
+   "type": "entry",
+   "cx": 320,
+   "cy": 562,
+   "w": 14,
+   "h": 14,
+   "rot": 0,
+   "id": "r70"
+  },
+  {
+   "name": "Entry (bottom-left)",
+   "type": "entry",
+   "cx": 432,
+   "cy": 668,
+   "w": 14,
+   "h": 14,
+   "rot": 0,
+   "id": "r71"
+  },
+  {
+   "name": "Entry (bottom-right)",
+   "type": "entry",
+   "cx": 900,
+   "cy": 655,
+   "w": 14,
+   "h": 14,
+   "rot": 0,
+   "id": "r72"
+  }
+ ],
+ "corridors": [
+  [
+   [
+    671,
+    232
+   ],
+   [
+    671,
+    505
+   ]
+  ],
+  [
+   [
+    382,
+    300
+   ],
+   [
+    382,
+    520
+   ],
+   [
+    420,
+    550
+   ],
+   [
+    455,
+    592
+   ],
+   [
+    640,
+    520
+   ]
+  ],
+  [
+   [
+    382,
+    300
+   ],
+   [
+    445,
+    268
+   ],
+   [
+    500,
+    232
+   ],
+   [
+    700,
+    232
+   ],
+   [
+    800,
+    232
+   ],
+   [
+    870,
+    268
+   ],
+   [
+    912,
+    290
+   ],
+   [
+    912,
+    525
+   ],
+   [
+    880,
+    585
+   ],
+   [
+    700,
+    525
+   ],
+   [
+    648,
+    513
+   ]
+  ]
+ ]
+}

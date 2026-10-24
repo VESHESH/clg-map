@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>AIT Pune - 3D Indoor Navigation</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="loading-overlay">
+    <div class="loading-card">
+      <div class="loading-spinner"></div>
+      <div class="loading-title">Loading Campus 3D Model...</div>
+      <div id="loading-progress" class="loading-sub">Preparing academic block & rooms</div>
+    </div>
+  </div>
+
+  <!-- Collision Debug Info Bar (Top of Screen) -->
+  <div id="debug-blocked-bar" class="debug-blocked-bar hidden">
+    <span class="debug-badge">BLOCKED</span>
+    <span id="debug-blocked-reason" class="debug-reason">none</span>
+  </div>
+
+  <!-- 3D Canvas Container -->
+  <div id="canvas-container"></div>
+
+  <!-- TOP SEARCH CARD (Clean, Light, Frosted) -->
+  <header id="top-search-card" class="search-card">
+    <div class="search-input-row">
+      <span class="search-icon-box">🔍</span>
+      <input 
+        type="text" 
+        id="to-input" 
+        class="main-search-input"
+        placeholder="Where do you want to go?" 
+        autocomplete="off" 
+        spellcheck="false"
+      />
+      <button id="clear-to-btn" class="clear-btn" title="Clear">&times;</button>
+      <button id="start-route-btn" class="start-btn hidden" title="Start Route">Start</button>
+    </div>
+    
+    <!-- Autocomplete dropdown for Destination -->
+    <ul id="to-autocomplete" class="autocomplete-list hidden"></ul>
+
+    <!-- "You are at: Reception [Change]" label row -->
+    <div id="you-are-here-row" class="you-are-here-row">
+      <span class="location-dot">📍</span>
+      <span class="location-text">You are at: <strong id="current-location-text">Reception</strong></span>
+      <button id="change-location-btn" class="change-link-btn" title="Change starting location">Change</button>
+    </div>
+  </header>
+
+  <!-- TOP RIGHT: Settings Gear Button -->
+  <button id="settings-open-btn" class="settings-gear-btn" title="Open Settings" aria-label="Settings">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    </svg>
+  </button>
+
+  <!-- CORNER: Small Round "Map / Walk" FAB Switch (Bottom-Left) -->
+  <button id="mode-fab-btn" class="mode-fab-btn" title="Toggle Map / Walk Mode">
+    <span id="mode-fab-icon" class="mode-fab-icon">🚶</span>
+    <span id="mode-fab-label" class="mode-fab-label">Walk</span>
+  </button>
+
+  <!-- Walk Mode On-Screen Touch Controls (Forward, Backward, Left, Right) -->
+  <div id="walk-touch-pad" class="walk-touch-pad hidden" aria-label="Walk controls">
+    <button id="walk-btn-fwd" class="walk-touch-btn" data-control="forward button" title="Forward (W / Up)" aria-label="Forward">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+    <div class="walk-touch-row">
+      <button id="walk-btn-left" class="walk-touch-btn" data-control="left button" title="Left (A / Left)" aria-label="Left">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="walk-btn-bwd" class="walk-touch-btn" data-control="backward button" title="Backward (S / Down)" aria-label="Backward">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </button>
+      <button id="walk-btn-right" class="walk-touch-btn" data-control="right button" title="Right (D / Right)" aria-label="Right">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- CORNER: Mini-map Widget (Bottom-Right, tappable to minimize/maximize) -->
+  <div id="mini-map-container" class="mini-map-container" title="Tap to hide / show mini-map">
+    <div id="mini-map-header" class="mini-map-header">
+      <span class="mini-map-title">Mini-map</span>
+      <span id="mini-map-hint" class="mini-map-hint">tap to hide</span>
+    </div>
+    <canvas id="mini-map-canvas" width="140" height="140"></canvas>
+    <div id="mini-map-minimized-icon" class="mini-map-minimized-icon hidden" title="Tap to open mini-map">🗺️</div>
+  </div>
+
+  <!-- BOTTOM: Clean Guidance Instruction Card -->
+  <div id="walk-instruction-card" class="walk-instruction-card hidden">
+    <div class="instruction-main">
+      <div id="instruction-icon" class="instruction-icon">⬆️</div>
+      <div class="instruction-text-block">
+        <div id="instruction-title" class="instruction-title">Walk straight about 12 steps</div>
+        <div id="instruction-sub" class="instruction-sub">Distance remaining: ~24m &bull; ~34 steps</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIDDEN SETTINGS MENU (Slide-in / Modal Card) -->
+  <div id="settings-modal" class="modal-backdrop hidden">
+    <div class="settings-card">
+      <div class="settings-header">
+        <div class="settings-title-group">
+          <span class="settings-icon">⚙️</span>
+          <h2 class="settings-title">Settings & Tools</h2>
+        </div>
+        <button id="settings-close-btn" class="settings-close-btn" aria-label="Close settings">&times;</button>
+      </div>
+
+      <div class="settings-body">
+        <!-- Floor Selector -->
+        <div class="settings-section">
+          <div class="settings-section-title">Floor</div>
+          <div class="settings-pill-group">
+            <button class="settings-option-pill active">Ground Floor (GF)</button>
+            <button class="settings-option-pill disabled" title="Coming soon">1st Floor (1F)</button>
+          </div>
+        </div>
+
+        <!-- Quick Shortcuts -->
+        <div class="settings-section">
+          <div class="settings-section-title">Find Nearest</div>
+          <div class="settings-buttons-grid">
+            <button id="nearest-toilet-btn" class="settings-action-btn">
+              <span>🚽</span> Nearest Toilet
+            </button>
+            <button id="nearest-stair-btn" class="settings-action-btn">
+              <span>🪜</span> Nearest Stair
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation & Audio -->
+        <div class="settings-section">
+          <div class="settings-section-title">Guidance & Audio</div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">🔊 Voice Guidance</span>
+              <span class="settings-row-desc">Read directions aloud</span>
+            </div>
+            <button id="voice-toggle-btn" class="toggle-switch-btn" data-active="false" title="Toggle Voice Guidance">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">▶ Simulate Walking</span>
+              <span class="settings-row-desc">Walk route automatically</span>
+            </div>
+            <button id="simulate-walk-btn" class="toggle-switch-btn" data-active="false" title="Toggle Simulate Walking">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Graphics & Display -->
+        <div class="settings-section">
+          <div class="settings-section-title">Display & Performance</div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">⚡ Low Quality Mode</span>
+              <span class="settings-row-desc">Fast performance for phones</span>
+            </div>
+            <button id="quality-toggle-btn" class="toggle-switch-btn" data-active="false" title="Toggle Low Quality">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">🚪 Show Doors</span>
+              <span class="settings-row-desc">Red markers at room entrances</span>
+            </div>
+            <button id="show-doors-btn" class="toggle-switch-btn" data-active="false" title="Toggle Show Doors">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">🟢 Show Walkable Area</span>
+              <span class="settings-row-desc">Green corridor floor grid</span>
+            </div>
+            <button id="show-walkable-btn" class="toggle-switch-btn" data-active="false" title="Toggle Walkable Grid">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+          <div class="settings-row">
+            <div class="settings-row-info">
+              <span class="settings-row-label">🐛 Collision Debug</span>
+              <span class="settings-row-desc">Show obstacle names when blocked</span>
+            </div>
+            <button id="debug-toggle-btn" class="toggle-switch-btn" data-active="false" title="Toggle Debug">
+              <span class="switch-handle"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Building Model Switcher -->
+        <div class="settings-section">
+          <div class="settings-section-title">Campus 3D Model</div>
+          <div class="settings-pill-group">
+            <button id="model-new-btn" class="settings-option-pill active">New Model (GLB)</button>
+            <button id="model-old-btn" class="settings-option-pill">Old Model</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANGE STARTING LOCATION MODAL -->
+  <div id="where-modal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">📍</span>
+          <div>
+            <h2 class="modal-title">Where are you right now?</h2>
+            <p class="modal-subtitle">Pick your current room or doorway</p>
+          </div>
+        </div>
+        <button id="where-close-btn" class="modal-close" aria-label="Close modal">&times;</button>
+      </div>
+
+      <!-- Search Box with Autocomplete -->
+      <div class="modal-search-wrapper">
+        <div class="input-group modal-input-group">
+          <span class="input-icon start-icon">&bull;</span>
+          <input 
+            type="text" 
+            id="where-input" 
+            placeholder="Type any room name (e.g. Physics Lab)..." 
+            autocomplete="off" 
+            spellcheck="false"
+          />
+          <button id="clear-where-btn" class="clear-btn">&times;</button>
+        </div>
+        <ul id="where-autocomplete" class="autocomplete-list hidden"></ul>
+      </div>
+
+      <!-- Quick Popular Places -->
+      <div id="popular-section" class="popular-section">
+        <div class="popular-title">Popular Places</div>
+        <div class="popular-grid">
+          <button class="popular-pill" data-room-id="r69">
+            <span class="popular-emoji">ℹ️</span>
+            <span class="popular-label">Reception / Foyer</span>
+          </button>
+          <button class="popular-pill" data-room-id="r07">
+            <span class="popular-emoji">🔬</span>
+            <span class="popular-label">Physics Lab</span>
+          </button>
+          <button class="popular-pill" data-room-id="r11">
+            <span class="popular-emoji">💻</span>
+            <span class="popular-label">Central Software Lab</span>
+          </button>
+          <button class="popular-pill" data-room-id="r71">
+            <span class="popular-emoji">🚪</span>
+            <span class="popular-label">Main Entry (bottom-left)</span>
+          </button>
+          <button class="popular-pill" data-room-id="r58">
+            <span class="popular-emoji">☕</span>
+            <span class="popular-label">Wet Canteen</span>
+          </button>
+          <button class="popular-pill" data-room-id="r06">
+            <span class="popular-emoji">🚻</span>
+            <span class="popular-label">Gents Toilet</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Selected Room Card (Interactive Tap in 3D Map) -->
+  <div id="room-card" class="room-card hidden">
+    <div class="room-card-header">
+      <h3 id="room-name">Room Name</h3>
+      <button id="room-card-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="room-card-meta">
+      <span id="room-type" class="badge">Type</span>
+      <span id="room-id" class="badge-sub">ID</span>
+    </div>
+    <div class="room-card-actions">
+      <button id="card-set-start-btn" class="action-btn secondary">Set as Start</button>
+      <button id="card-route-here-btn" class="action-btn primary">Route Here</button>
+    </div>
+  </div>
+
+  <script>
+    // Fail-safe: dismiss loading overlay after 3.5 seconds under any circumstances
+    setTimeout(function() {
+      var loader = document.getElementById('loading-overlay');
+      if (loader && !loader.classList.contains('hidden')) {
+        loader.classList.add('hidden');
+      }
+    }, 3500);
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
